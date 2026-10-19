@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -5,686 +6,409 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0a0b14">
 <title>NEXORA Gaming</title>
-
 <style>
-:root{--bg:#090b13;--panel:#121625;--line:#2a3150;--txt:#f5f6ff;--muted:#9ca6c7;--purple:#a78bfa;--cyan:#67e8f9;--green:#4ade80;--red:#fb7185}
+:root{--bg:#090b13;--panel:#121625;--line:#2a3150;--txt:#f5f6ff;--muted:#9ca6c7;--purple:#a78bfa;--cyan:#67e8f9;--green:#4ade80;--red:#fb7185;--yellow:#fbbf24}
 *{box-sizing:border-box}
 body{margin:0;background:radial-gradient(ellipse at top,#171536,#090b13 65%);color:var(--txt);font-family:system-ui,sans-serif;min-height:100vh}
 button,input,select{font:inherit}button{cursor:pointer}
 .wrap{max-width:1080px;margin:auto;padding:16px}
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 0 22px}
-.brand{display:flex;gap:12px;align-items:center}
-.logo{width:48px;height:48px;display:grid;place-items:center;background:linear-gradient(135deg,#7c3aed,#0891b2);border-radius:15px;font-size:25px}
+.brand{display:flex;gap:12px;align-items:center}.logo{width:48px;height:48px;display:grid;place-items:center;background:linear-gradient(135deg,#7c3aed,#0891b2);border-radius:15px;font-size:25px}
 .brand h1{font-size:22px;letter-spacing:2px;margin:0}.brand small{color:var(--purple);letter-spacing:2px}
-.nav{display:flex;gap:8px;flex-wrap:wrap}
-.nav button,.secondary{background:#171c2e;border:1px solid var(--line);color:white;padding:10px 13px;border-radius:12px}
-.nav .active,.primary{background:linear-gradient(120deg,#7c3aed,#2563eb);color:white;border:0}
+.nav{display:flex;gap:8px;flex-wrap:wrap}.nav button,.secondary{background:#171c2e;border:1px solid var(--line);color:white;padding:10px 13px;border-radius:12px}.nav .active,.primary{background:linear-gradient(120deg,#7c3aed,#2563eb);color:white;border:0}
 .hero{padding:20px 0 28px;display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center}
-.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:2px;font-weight:800}
-.hero h2{font-size:clamp(28px,5vw,46px);line-height:1.3;margin:10px 0}
-.hero p{color:var(--muted);line-height:1.9}
-.heroCard,.panel{background:#101421ef;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 14px 40px #0002}
-.heroCard{background:linear-gradient(145deg,#171c32,#111522);border-radius:24px;padding:20px}
-.statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
-.stat{background:#0c1020;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
-.stat b{display:block;font-size:20px;color:var(--cyan)}.stat span{font-size:12px;color:var(--muted)}
-.layout{display:grid;grid-template-columns:1fr .85fr;gap:16px;align-items:start}
-.panel{margin-bottom:16px}.panel h3{margin:0 0 16px;font-size:18px}
-.field{display:flex;flex-direction:column;gap:8px;margin-bottom:17px;min-width:0}
-.field label,.groupLabel{font-size:13px;color:#c6cce2;font-weight:650}
-.field input,.field select{width:100%;min-width:0;background:#090d18;color:var(--txt);border:1px solid #303854;border-radius:13px;padding:13px;outline:none;min-height:48px;color-scheme:dark}
+.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:2px;font-weight:800}.hero h2{font-size:clamp(28px,5vw,46px);line-height:1.3;margin:10px 0}.hero p{color:var(--muted);line-height:1.9}
+.heroCard,.panel{background:#101421ef;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 14px 40px #0002}.heroCard{background:linear-gradient(145deg,#171c32,#111522);border-radius:24px;padding:20px}
+.statgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:18px}#adminStats{grid-template-columns:repeat(2,minmax(0,1fr))}
+.stat{background:#0c1020;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;min-width:0}.stat b{display:block;font-size:20px;color:var(--cyan);overflow-wrap:anywhere}.stat span{font-size:12px;color:var(--muted)}
+.layout{display:grid;grid-template-columns:1fr;gap:16px}.panel{margin-bottom:16px;max-width:850px;width:100%;margin-inline:auto}.panel h3{margin:0 0 16px;font-size:18px}
+.field{display:flex;flex-direction:column;gap:8px;margin-bottom:17px;min-width:0}.field label,.groupLabel{font-size:13px;color:#c6cce2;font-weight:650}
+.field input,.field select,.adminAuth input{width:100%;min-width:0;background:#090d18;color:var(--txt);border:1px solid #303854;border-radius:13px;padding:13px;outline:none;min-height:48px;color-scheme:dark}
 .field input:focus,.field select:focus{border-color:var(--purple);box-shadow:0 0 0 2px #a78bfa22}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.btn{padding:14px 16px;border-radius:13px;font-weight:800;width:100%;border:0}
-.btn:disabled{opacity:.5;cursor:not-allowed}
-.hint{font-size:12px;color:var(--muted);line-height:1.9}
-.pcgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.pc,.choice{position:relative;overflow:hidden;background:linear-gradient(150deg,#151b30,#0b1020 72%);border:1px solid #303957;border-radius:15px;padding:12px 7px;text-align:center;color:white;min-width:0;transition:.18s}
-.pc:before,.choice:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#7c3aed,#22d3ee);opacity:.65}
-.pc.selected,.choice.selected{border-color:var(--cyan);background:linear-gradient(145deg,#123044,#11172b);box-shadow:0 0 0 1px #67e8f933}
-.pc .screen{height:40px;width:50px;margin:3px auto 9px;border:2px solid #64748b;border-radius:7px;background:linear-gradient(145deg,#312e81,#0e7490);display:grid;place-items:center;font-size:22px}
-.pc b,.choice b{display:block;font-size:13px;margin:5px 0}
-.pc small,.choice small{display:block;font-size:11px;color:var(--muted)}
-.pcPrice{display:block;color:var(--cyan);font-size:11px;margin-top:8px}
-.pcSelectMark{display:block;font-size:10px;color:var(--muted);margin-top:7px}
-.pc.selected .pcSelectMark{color:var(--cyan)}
-.choiceGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-.choice{padding:13px 8px;min-height:76px}
-.choice .emoji{font-size:23px;display:block;margin-bottom:5px}
-.choice.selected:after{content:"✓";position:absolute;left:7px;top:8px;color:var(--cyan);font-weight:900}
-.durationGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.durationBtn{background:#0b1020;color:white;border:1px solid #303854;border-radius:12px;padding:12px 4px;min-height:68px}
-.durationBtn b{display:block;font-size:15px}.durationBtn small{display:block;color:var(--muted);font-size:11px;margin-top:5px}
-.durationBtn.selected{border-color:var(--cyan);background:#123044;box-shadow:inset 0 0 0 1px #67e8f933}
-.durationBtn.openBtn{grid-column:span 3}
-.booking{background:#0b1020;border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
-.bookinghead{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
-.booking p{color:var(--muted);font-size:13px;line-height:1.9;margin:8px 0}
-.pill{display:inline-block;border-radius:99px;padding:5px 9px;font-size:11px;background:#1e293b;color:#cbd5e1}
-.status{font-size:12px;font-weight:700}
-.pending{color:#fbbf24}.accepted{color:var(--green)}.rejected{color:var(--red)}
-.actions{display:flex;gap:8px;margin-top:10px}.actions button{flex:1;padding:10px;border-radius:9px;color:white;border:0}
-.accept{background:#166534}.reject{background:#9f1239}
-.empty{color:var(--muted);text-align:center;padding:25px}
-.hidden{display:none!important}
-.notice,.conflictNotice{border:1px solid #854d0e;background:#42200655;color:#fde68a;border-radius:12px;padding:12px;font-size:12px;line-height:1.9;margin-bottom:15px}
-.conflictNotice{border-color:#fb7185;background:#4c102055;color:#fecdd3;padding:14px}
-.conflictNotice strong{display:block;font-size:15px;margin-bottom:4px;color:#fda4af}
-.conflictDetails{margin-top:7px;padding:9px;background:#090b1377;border-radius:9px}
-footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0}
-.dateGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
-.dateCard{position:relative;background:linear-gradient(145deg,#151b30,#0b1020);color:white;border:1px solid #303854;border-radius:13px;padding:12px 5px;min-width:0;min-height:83px;transition:.18s}
-.dateCard b{display:block;font-size:13px;margin-bottom:7px}.dateCard span{display:block;color:var(--muted);font-size:12px}
-.dateCard.selected{border-color:var(--cyan);background:linear-gradient(145deg,#123044,#11172b);box-shadow:0 0 0 1px #67e8f933}
-.dateCard.selected b,.dateCard.selected span{color:var(--cyan)}
-.dateCard.selected:after{content:"✓";position:absolute;left:6px;top:5px;color:var(--cyan);font-size:12px}
-.dateTools{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:10px 0 0;flex-wrap:wrap}
-.dateTools button{background:#171c2e;border:1px solid var(--line);color:#e7e9ff;padding:9px 12px;border-radius:10px;font-size:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.btn{padding:14px 16px;border-radius:13px;font-weight:800;width:100%;border:0}.btn:disabled{opacity:.5;cursor:not-allowed}
+.hint{font-size:12px;color:var(--muted);line-height:1.9}.pcgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.pc,.choice,.dateCard,.timeSlot,.durationOption{position:relative;overflow:hidden;background:linear-gradient(150deg,#151b30,#0b1020);border:1px solid #303957;border-radius:15px;padding:12px 7px;text-align:center;color:white;min-width:0;transition:.18s}
+.pc:before,.choice:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#7c3aed,#22d3ee)}
+.pc.selected,.choice.selected,.dateCard.selected,.timeSlot.selected,.durationOption.selected{border-color:var(--cyan);background:linear-gradient(145deg,#123044,#11172b);box-shadow:0 0 0 1px #67e8f933}
+.pc .screen{height:45px;width:58px;margin:3px auto 9px;border:2px solid #64748b;border-radius:8px;background:linear-gradient(145deg,#312e81,#0e7490);display:grid;place-items:center;font-size:22px}
+.pc b,.choice b{display:block;font-size:13px;margin:5px 0}.pc small,.choice small{display:block;font-size:11px;color:var(--muted)}
+.pcPrice{display:block;color:var(--cyan);font-size:11px;margin-top:8px}.pcSelectMark{display:block;font-size:10px;color:var(--muted);margin-top:7px}
+.deviceState{display:block;margin-top:8px;padding:6px 8px;border-radius:9px;background:#142033;color:#a5b4fc;font-size:11px;line-height:1.6}
+.deviceState.running{background:#123a2b;color:#86efac;border:1px solid #166534}.deviceState.reserved{background:#39280d;color:#fcd34d}
+.choiceGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.choice{padding:13px 8px;min-height:100px;border-radius:15px}.choice .emoji{font-size:27px;display:block;margin-bottom:5px}
+#gamePicker .choice{min-height:115px;border-radius:18px;background:radial-gradient(circle at 50% 0%,#25234a,#12182a)}
+#gamePicker .emoji{font-size:30px}.dateGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.dateCard{min-height:85px;border-radius:15px;padding:12px 5px}.dateCard b,.dateCard span{display:block;margin-bottom:6px}.dateCard span{font-size:12px;color:var(--muted)}
+.dateTools{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.dateTools button{background:#171c2e;border:1px solid var(--line);color:white;padding:9px 12px;border-radius:10px}
 .dateSummary{color:var(--cyan);font-size:12px;line-height:1.8;margin-top:10px}
-#customDate{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
-.paymentIcon{height:35px;min-width:46px;display:inline-grid;place-items:center;border-radius:10px;background:#202640;margin-bottom:5px;padding:0 6px;font-size:18px;font-weight:900}
-.payment-voda .paymentIcon{background:#6c1024;color:#ff9bb1}.payment-insta .paymentIcon{background:#302057;color:#d7b8ff}
-.payment-orange .paymentIcon{background:#65300a;color:#ffc17d}.payment-cash .paymentIcon{background:#17452d;color:#8af0b0}
-.paymentNote{margin-top:9px;color:var(--muted);font-size:11px;line-height:1.8}
-.adminAuth{max-width:480px;margin:0 auto 16px}
-.adminAuth input{width:100%;margin:6px 0 12px;padding:12px;background:#090d18;color:white;border:1px solid #303854;border-radius:12px}
-.connection{font-size:12px;color:var(--muted);margin:10px 0}.connection.ok{color:var(--green)}.connection.err{color:var(--red)}
-.accountingBanner{background:linear-gradient(125deg,#171536 0%,#101827 48%,#102a32 100%);border:1px solid #39456b;border-radius:14px;padding:10px 12px;margin-bottom:12px;box-shadow:0 14px 36px #0004;position:relative;overflow:hidden}
-.accountingBanner:before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:linear-gradient(#a78bfa,#67e8f9,#4ade80)}
-.accountingTitle{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
-.accountingTitle h3{margin:0;font-size:15px}
-.accountingTiles{display:grid;grid-template-columns:1fr;gap:0}
-.accountingTile{min-width:0;padding:8px 12px;display:flex;justify-content:space-between;align-items:center;text-align:right;border:1px solid #343e5d;background:#090f1caa;border-radius:15px}
-.accountingTile span{color:#b8c2df;font-size:12px}.accountingTile strong{font-size:20px;overflow-wrap:anywhere;color:#67e8f9}
-.accountingTile.expense strong{color:#fb7185}.accountingTile.net strong{color:#4ade80}
-.sectionTitle{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-.sectionTitle h3{margin:0}
 .timeGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.timeSlot{position:relative;background:linear-gradient(145deg,#151b30,#0b1020);border:1px solid #303854;border-radius:12px;color:white;padding:12px 4px;min-height:48px;font-weight:700}
-.timeSlot.selected{border-color:var(--cyan);background:#123044;box-shadow:inset 0 0 0 1px #67e8f933;color:var(--cyan)}
-.timeSlot:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through;background:#270e19;border-color:#6b2638}
-.timeSlot:disabled:after{content:"محجوز";display:block;font-size:10px;color:#fda4af;margin-top:3px;text-decoration:none}
-.timeHint{font-size:12px;color:var(--muted);line-height:1.8;margin-top:8px}
-.adminGroup{margin-top:18px}
-.adminGroupHeader{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px;background:#0b1020;border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
-.adminGroupHeader h4{margin:0;font-size:15px}
-.countBadge{border-radius:99px;background:#202640;padding:5px 10px;font-size:12px}
-@media(max-width:760px){.hero,.layout{grid-template-columns:1fr}.hero{padding-top:10px}.wrap{padding:12px}.brand h1{font-size:19px}.pcgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:430px){.dateGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.dateCard{min-height:78px;padding:10px 3px}.timeGrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:380px){.two{grid-template-columns:1fr}.pcgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.durationGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.durationBtn.openBtn{grid-column:span 2}.dateGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.timeGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.timeSlot{border-radius:12px;padding:12px 4px;font-weight:800}.timeSlot small{display:block;font-size:10px;color:var(--muted);margin-top:4px;font-weight:500}
+.timeSlot:disabled{opacity:.4;cursor:not-allowed;border-color:#7f1d1d;background:#26131c}.timeSlot:disabled small{color:#fda4af}
+.timeSlot.past{opacity:.45;border-color:#475569;background:#171b29;color:#94a3b8}.timeSlot.past small{color:#94a3b8}
+#durationPicker{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.durationOption{border-radius:12px;padding:12px 5px;font-weight:800}.durationOption small{display:block;color:var(--muted);font-size:10px;margin-top:5px}
+#customDate,#time{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.booking{background:#0b1020;border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0;overflow-wrap:anywhere}
+.bookinghead{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}.booking p{color:var(--muted);font-size:13px;line-height:1.9;margin:8px 0}
+.pill{display:inline-block;border-radius:99px;padding:5px 9px;font-size:11px;background:#1e293b;color:#cbd5e1}
+.status{font-size:12px;font-weight:700}.pending{color:var(--yellow)}.accepted{color:var(--green)}.rejected{color:var(--red)}
+.actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.actions button{flex:1;min-width:110px;padding:10px;border-radius:9px;color:white;border:0}
+.accept{background:#166534}.reject{background:#9f1239}.paidAction{background:#166534;color:#dcfce7;border:1px solid #22c55e}.unpaidAction{background:#713f12;color:#fef3c7;border:1px solid #f59e0b}
+.paidLabel{display:inline-block;color:#86efac;background:#123a2b;border:1px solid #166534;border-radius:9px;padding:6px 9px;font-size:12px;font-weight:800}
+.unpaidLabel{display:inline-block;color:#fcd34d;background:#39280d;border:1px solid #854d0e;border-radius:9px;padding:6px 9px;font-size:12px;font-weight:800}
+.empty{color:var(--muted);text-align:center;padding:25px}.hidden{display:none!important}
+.conflictNotice{border:1px solid var(--red);background:#4c102055;color:#fecdd3;border-radius:12px;padding:14px;font-size:12px;line-height:1.9;margin-bottom:15px}
+.conflictNotice strong{display:block;font-size:15px;margin-bottom:4px;color:#fda4af}.conflictDetails{margin-top:7px;padding:9px;background:#090b1377;border-radius:9px}
+.adminAuth{max-width:480px;margin:0 auto 16px}.adminAuth label{font-size:13px;color:#c6cce2;display:block;margin:12px 0 6px}
+.connection{font-size:12px;color:var(--muted);margin:10px 0}.connection.ok{color:var(--green)}.connection.err{color:var(--red)}
+.sectionTitle{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:10px}.wrap{padding:12px}.brand h1{font-size:19px}.two{grid-template-columns:1fr}}
+@media(max-width:380px){.dateGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.statgrid{gap:5px}.stat{padding:8px}}
 </style>
 </head>
-
 <body>
 <div class="wrap">
 <header class="top">
-  <div class="brand"><div class="logo">🎮</div><div><h1>NEXORA</h1><small>GAMING CENTER</small></div></div>
-  <nav class="nav">
-    <button class="active" id="navBook" onclick="showView('book')">احجز جهاز</button>
-    <button id="navAdmin" onclick="showView('admin')">لوحة الإدارة</button>
-  </nav>
+<div class="brand"><div class="logo">🎮</div><div><h1>NEXORA</h1><small>GAMING CENTER</small></div></div>
+<nav class="nav"><button class="active" id="navBook" onclick="showView('book')">احجز جهاز</button><button id="navAdmin" onclick="showView('admin')">لوحة الإدارة</button></nav>
 </header>
-
 <section class="hero">
-  <div>
-    <div class="eyebrow">YOUR NEXT LEVEL STARTS HERE</div>
-    <h2>اللعبة اللي بتحبها<br>والجهاز اللي يناسبك.</h2>
-    <p>اختار جهازك واللعبة والوقت المناسب ليك، وابعت طلب الحجز. الحجز يفضل قيد المراجعة لحد ما إدارة NEXORA توافق عليه.</p>
-  </div>
-  <div class="heroCard">
-    <div class="eyebrow">NEXORA / STATION STATUS</div>
-    <h3 style="font-size:24px;margin:12px 0 4px">جاهز للجيم؟</h3>
-    <p style="margin:0;color:var(--muted)">15 محطة لعب • 15 جنيه للساعة • تأكيد يدوي</p>
-    <div class="statgrid">
-      <div class="stat"><b>15</b><span>جهاز</span></div>
-      <div class="stat"><b>4</b><span>ألعاب</span></div>
-      <div class="stat"><b>4</b><span>طرق دفع</span></div>
-    </div>
-  </div>
+<div><div class="eyebrow">YOUR NEXT LEVEL STARTS HERE</div><h2>اللعبة اللي بتحبها<br>والجهاز اللي يناسبك.</h2><p>اختار جهازك واللعبة والوقت المناسب ليك، وابعت طلب الحجز. الحجز يفضل قيد المراجعة لحد ما إدارة NEXORA توافق عليه.</p></div>
+<div class="heroCard"><div class="eyebrow">NEXORA / STATION STATUS</div><h3 style="font-size:24px;margin:12px 0 4px">جاهز للجيم؟</h3><p style="margin:0;color:var(--muted)">10 محطات لعب • 15 جنيه للساعة • تأكيد يدوي</p><div class="statgrid"><div class="stat"><b>10</b><span>جهاز</span></div><div class="stat"><b>4</b><span>ألعاب</span></div><div class="stat"><b>3</b><span>طرق دفع</span></div></div></div>
 </section>
-
 <div id="bookView">
-<div class="layout">
 <main>
-<section class="panel">
-<h3>⚡ تفاصيل الحجز</h3>
-<form id="bookingForm">
-  <div class="field">
-    <label for="customer">اسم اللاعب</label>
-    <input id="customer" maxlength="60" required placeholder="اكتب اسمك">
-  </div>
-  <div class="field">
-    <label for="phone">رقم الموبايل</label>
-    <input id="phone" inputmode="tel" maxlength="20" required placeholder="01xxxxxxxxx">
-  </div>
-
-  <div class="two">
-    <div class="field">
-      <label>اختار الجهاز</label>
-      <select id="pc" class="hidden" required aria-label="الجهاز المختار"></select>
-      <div id="pcPicker"></div>
-    </div>
-    <div class="field">
-      <label>اختار اللعبة</label>
-      <input id="game" type="hidden" value="PUBG">
-      <div class="choiceGrid" id="gamePicker"></div>
-    </div>
-  </div>
-
-  <div class="field">
-    <label>📅 اختار يوم الحجز</label>
-    <div id="datePicker" class="dateGrid"></div>
-    <div class="dateTools">
-      <span class="hint">اختار اليوم والتاريخ المناسب ليك</span>
-      <button type="button" id="customDateButton">📆 تاريخ أبعد</button>
-      <input type="date" id="customDate" aria-label="اختيار تاريخ آخر">
-    </div>
-    <div id="dateSummary" class="dateSummary"></div>
-    <input type="hidden" id="date" required>
-  </div>
-
-  <div class="two">
-    <div class="field">
-      <label>🕒 اختار ميعاد البداية</label>
-      <input type="hidden" id="time" required>
-      <div id="timePicker" class="timeGrid"></div>
-      <div id="timeHint" class="timeHint">المواعيد المحجوزة هتكون غير متاحة للاختيار.</div>
-    </div>
-    <div class="field">
-      <label>⏱️ مدة اللعب</label>
-      <select id="duration" class="hidden" aria-label="مدة اللعب">
-        <option value="1">ساعة واحدة</option><option value="2">ساعتين</option>
-        <option value="3">3 ساعات</option><option value="4">4 ساعات</option>
-        <option value="5">5 ساعات</option><option value="open">أوبن</option>
-      </select>
-      <div class="durationGrid" id="durationPicker"></div>
-    </div>
-  </div>
-
-  <div class="field hidden" id="openEndField">
-    <label for="endTime">🏁 ميعاد النهاية (اختياري للأوبن)</label>
-    <input type="time" id="endTime">
-    <small class="hint">لو مش محدد ميعاد نهاية، الحجز المفتوح هيتحسب لحد نهاية اليوم لأغراض تنظيم تعارض الحجوزات فقط.</small>
-  </div>
-
-  <div class="field">
-    <label>💳 اختار طريقة الدفع</label>
-    <input id="payment" type="hidden" value="كاش في المحل">
-    <div class="choiceGrid" id="paymentPicker">
-      <button type="button" class="choice selected payment-cash" data-payment="كاش في المحل"><span class="paymentIcon">💵</span><b>كاش في المحل</b><small>الدفع عند الوصول</small></button>
-      <button type="button" class="choice payment-voda" data-payment="Vodafone Cash"><span class="paymentIcon">V</span><b>Vodafone Cash</b><small>فودافون كاش</small></button>
-      <button type="button" class="choice payment-insta" data-payment="InstaPay"><span class="paymentIcon">IP</span><b>InstaPay</b><small>إنستا باي</small></button>
-      <button type="button" class="choice payment-orange" data-payment="Orange Cash"><span class="paymentIcon">O</span><b>Orange Cash</b><small>أورانج كاش</small></button>
-    </div>
-    <div class="paymentNote">اختيار وسيلة الدفع بيسجل تفضيلك فقط. التحويل الإلكتروني مش بيتنفذ من الموقع.</div>
-  </div>
-
-  <div id="conflictNotice" class="conflictNotice hidden" role="alert" aria-live="assertive"></div>
-  <div class="booking" style="display:flex;justify-content:space-between;align-items:center;gap:10px">
-    <div><small style="color:var(--muted)">التكلفة التقديرية</small><div style="font-size:24px;font-weight:800" id="total">15 ج.م</div></div>
-    <span class="pill">الدفع بعد تأكيد الإدارة</span>
-  </div>
-  <button class="btn primary" type="submit">إرسال طلب الحجز ←</button>
-  <p class="hint">إرسال الطلب لا يعني تأكيد الحجز. الإدارة لازم توافق عليه.</p>
-</form>
-</section>
-</main>
-
-<aside>
-  <section class="panel">
-    <h3>🖥️ محطات اللعب</h3>
-    <div class="pcgrid" id="pcGrid"></div>
-    <p class="hint">كل الأجهزة بسعر ثابت 15 جنيه للساعة.</p>
-  </section>
-  <section class="panel">
-    <h3>📅 الحجوزات المؤكدة</h3>
-    <p class="hint">الحجوزات المؤكدة بتظهر بدون أرقام الموبايلات.</p>
-    <div id="publicReservations" class="empty">جاري تحميل الحجوزات...</div>
-  </section>
-  <section class="panel">
-    <h3>📌 تابع طلباتك</h3>
-    <div id="myBookings" class="empty">جاري الاتصال...</div>
-  </section>
-</aside>
+<section class="panel"><h3>⚡ تفاصيل الحجز</h3><form id="bookingForm">
+<div class="field"><label for="customer">اسم اللاعب</label><input id="customer" maxlength="60" required placeholder="اكتب اسمك"></div>
+<div class="field"><label for="phone">رقم الموبايل</label><input id="phone" inputmode="tel" maxlength="20" required placeholder="01xxxxxxxxx"></div>
+<div class="two">
+<div class="field"><label>اختار الجهاز</label><select id="pc" class="hidden" required></select><div id="pcPicker"></div></div>
+<div class="field"><label>اختار اللعبة</label><input id="game" type="hidden" value="PUBG"><div class="choiceGrid" id="gamePicker"></div></div>
 </div>
+<div class="field"><label>📅 اختار يوم الحجز</label><div id="datePicker" class="dateGrid"></div><div class="dateTools"><input type="date" id="customDate" aria-label="اختيار تاريخ آخر"></div><div id="dateSummary" class="dateSummary"></div><input type="hidden" id="date" required></div>
+<div class="two">
+<div class="field"><label>🕒 ميعاد البداية</label><input type="hidden" id="time" required><div id="timePicker" class="timeGrid"></div><div id="timeHint" class="hint">اختار الجهاز واليوم والمدة علشان المواعيد المتعارضة تتقفل.</div></div>
+<div class="field"><label>⏱️ مدة الحجز</label><input type="hidden" id="duration" value="1"><div id="durationPicker"></div><input type="time" id="endTime" class="hidden"></div>
 </div>
-
+<p class="hint">اختار البداية وعدد الساعات، وميعاد النهاية والسعر هيتحسبوا تلقائيًا.</p>
+<div class="booking" style="display:flex;justify-content:space-between;align-items:center;gap:10px"><div><small style="color:var(--muted)">المدة والتكلفة التقديرية</small><div id="durationSummary" style="font-size:19px;font-weight:800">اختار البداية والنهاية</div><div id="total" style="font-size:24px;font-weight:800">—</div></div><span class="pill">15 جنيه / ساعة</span></div>
+<div class="field"><label>💳 اختار طريقة الدفع</label><input id="payment" type="hidden" value=""><div class="choiceGrid" id="paymentPicker">
+<button type="button" class="choice payment-voda" data-payment="Vodafone Cash"><span class="emoji">V</span><b>Vodafone Cash</b><small>فودافون كاش</small></button>
+<button type="button" class="choice payment-insta" data-payment="InstaPay"><span class="emoji">IP</span><b>InstaPay</b><small>إنستا باي</small></button>
+<button type="button" class="choice payment-orange" data-payment="Orange Cash"><span class="emoji">O</span><b>Orange Cash</b><small>أورانج كاش</small></button>
+</div><div class="hint">اختيار وسيلة الدفع بيسجل تفضيلك فقط، والتحويل الإلكتروني مش بيتنفذ من الموقع.</div></div>
+<div id="conflictNotice" class="conflictNotice hidden" role="alert"></div>
+<button class="btn primary" type="submit">إرسال طلب الحجز ←</button>
+</form></section>
+<section class="panel"><h3>📋 حالة حجوزاتي</h3><div id="myBookings"><div class="empty">جاري تحميل الطلبات...</div></div></section>
+<section class="panel"><h3>📅 الحجوزات المؤكدة في اليوم المختار</h3><div id="publicReservations"><div class="empty">جاري تحميل الحجوزات...</div></div></section>
+</main></div>
 <div id="adminView" class="hidden">
-<section id="adminLogin" class="panel adminAuth">
-  <h3>🔐 دخول الإدارة</h3>
-  <p class="hint">سجّل الدخول بحساب المدير المسجل في Firebase.</p>
-  <label for="adminEmail">البريد الإلكتروني</label>
-  <input id="adminEmail" type="email" autocomplete="username" placeholder="البريد الإلكتروني">
-  <label for="adminPassword">كلمة المرور</label>
-  <input id="adminPassword" type="password" autocomplete="current-password" placeholder="كلمة المرور">
-  <button id="adminLoginBtn" class="btn primary" type="button">تسجيل الدخول</button>
-  <div id="loginMessage" class="connection"></div>
-</section>
-
+<section id="adminLogin" class="panel adminAuth"><h3>🔐 دخول الإدارة</h3><p class="hint">سجّل الدخول بحساب المدير المسجل في Firebase.</p><label for="adminEmail">البريد الإلكتروني</label><input id="adminEmail" type="email" autocomplete="username" placeholder="البريد الإلكتروني"><label for="adminPassword">كلمة المرور</label><input id="adminPassword" type="password" autocomplete="current-password" placeholder="كلمة المرور"><button id="adminLoginBtn" class="btn primary" type="button" style="margin-top:14px">تسجيل الدخول</button><div id="loginMessage" class="connection"></div></section>
 <div id="adminContent" class="hidden">
-  <section class="panel">
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
-      <h3 style="margin:0">لوحة إدارة NEXORA</h3>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="secondary" onclick="exportBookings()">تصدير CSV</button>
-        <button class="secondary" id="adminLogoutBtn">تسجيل الخروج</button>
-      </div>
-    </div>
-    <div id="adminConnection" class="connection">جاري تحميل الطلبات...</div>
-    <div class="statgrid" id="adminStats"></div>
-  </section>
-
-  <section class="accountingBanner" id="accountingPanel">
-    <div class="accountingTitle"><h3>💰 دخل النهارده</h3><span class="pill">تلقائي مع قبول الحجز</span></div>
-    <div class="accountingTiles" id="cashStats">
-      <div class="accountingTile"><span>💵 إجمالي دخل اليوم</span><strong>0 ج.م</strong></div>
-    </div>
-  </section>
-
-  <section class="panel">
-    <h3>📥 إدارة الحجوزات</h3>
-
-    <div class="adminGroup">
-      <div class="adminGroupHeader"><h4>🟡 الحجوزات قيد المراجعة</h4><span class="countBadge" id="pendingCount">0</span></div>
-      <div id="pendingBookings"></div>
-    </div>
-
-    <div class="adminGroup">
-      <div class="adminGroupHeader"><h4>🟢 الحجوزات المقبولة</h4><span class="countBadge" id="acceptedCount">0</span></div>
-      <div id="acceptedBookings"></div>
-    </div>
-
-    <div class="adminGroup">
-      <div class="adminGroupHeader"><h4>🔴 الحجوزات المرفوضة</h4><span class="countBadge" id="rejectedCount">0</span></div>
-      <div id="rejectedBookings"></div>
-    </div>
-  </section>
-
-  <section class="panel">
-    <h3>⚙️ أسعار الأجهزة</h3>
-    <p class="hint">سعر كل الأجهزة ثابت حاليًا: 15 جنيه للساعة.</p>
-  </section>
+<section class="panel"><div class="sectionTitle"><h3 style="margin:0">لوحة إدارة NEXORA</h3><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="secondary" onclick="exportBookings()">تصدير CSV</button><button class="secondary" id="adminLogoutBtn">تسجيل الخروج</button></div></div><div id="adminConnection" class="connection">جاري تحميل الطلبات...</div><div class="statgrid" id="adminStats"></div></section>
+<section class="panel"><h3>⏳ طلبات قيد المراجعة</h3><div id="adminPending"></div></section>
+<section class="panel"><h3>✅ الحجوزات المقبولة</h3><div id="adminAccepted"></div></section>
+<section class="panel"><h3>❌ الحجوزات المرفوضة</h3><div id="adminRejected"></div></section>
+</div></div>
+<footer>NEXORA GAMING • Firebase</footer>
 </div>
-</div>
-
-<footer>NEXORA GAMING • متصل بقاعدة بيانات Firebase</footer>
-</div>
-
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
-
 <script>
 'use strict';
 
-const firebaseConfig={
- apiKey:'AIzaSyCI4p5QmWA--JRBQqUlDsCBaPA9uy925x0',
- authDomain:'nexora-gaming-1e2f9.firebaseapp.com',
- projectId:'nexora-gaming-1e2f9',
- storageBucket:'nexora-gaming-1e2f9.firebasestorage.app',
- messagingSenderId:'770727665129',
- appId:'1:770727665129:web:1e52d828ec79077b3fbf78',
- measurementId:'G-Y77P1MS5P6'
-};
+const firebaseConfig={apiKey:'AIzaSyCI4p5QmWA--JRBQqUlDsCBaPA9uy925x0',authDomain:'nexora-gaming-1e2f9.firebaseapp.com',projectId:'nexora-gaming-1e2f9',storageBucket:'nexora-gaming-1e2f9.firebasestorage.app',messagingSenderId:'770727665129',appId:'1:770727665129:web:1e52d828ec79077b3fbf78',measurementId:'G-Y77P1MS5P6'};
 
 if(!firebase.apps.length)firebase.initializeApp(firebaseConfig);
+
 const auth=firebase.auth(),db=firebase.firestore();
-const BOOKINGS_COLLECTION='nexora_bookings';
 const ADMIN_EMAIL='modyahmed75461@gmail.com';
 
-const defaultPCs=Array.from({length:15},(_,i)=>({
- id:i+1,name:'PC-'+String(i+1).padStart(2,'0'),price:15
-}));
+const defaultPCs=[
+{id:1,name:'A-1',price:15},{id:2,name:'A-2',price:15},
+{id:3,name:'A-3',price:15},{id:4,name:'B-4',price:15},
+{id:5,name:'B-5',price:15},{id:6,name:'B-6',price:15},
+{id:7,name:'C-7',price:15},{id:8,name:'C-8',price:15},
+{id:9,name:'C-9',price:15},{id:10,name:'C-10',price:15}
+];
 
-let pcs=defaultPCs;
-let currentUser=null;
-let isAdmin=false;
-let adminUnsub=null,publicUnsub=null,mineUnsub=null,cashUnsub=null;
-let cachedPublic=[],cachedMine=[],cachedAdmin=[],cachedCash=[];
-let myIds=JSON.parse(localStorage.getItem('nexora_myids')||'[]');
-let bookingBusy=false;
+let pcs=defaultPCs,currentUser=null,publicUnsub=null,mineUnsub=null,adminUnsub=null;
+let cachedPublic=[],cachedMine=[],cachedAdmin=[],bookingBusy=false;
+let adminCheckRunning=false;
 
 const $=id=>document.getElementById(id);
 const money=n=>new Intl.NumberFormat('ar-EG').format(n)+' ج.م';
 const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
+function normalizeStatus(value){
+ const s=String(value??'').trim().toLowerCase();
+ if(['accepted','approved','confirmed','مقبول','مؤكد','تم القبول','تم التأكيد'].includes(s))return 'accepted';
+ if(['rejected','declined','refused','مرفوض','تم الرفض'].includes(s))return 'rejected';
+ return 'pending';
+}
+
+function mapBookingDocument(doc){
+ const data=doc.data()||{};
+ return {...data,id:doc.id,status:normalizeStatus(data.status)};
+}
+
 function todayISO(){
  const d=new Date();
  return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
 }
-function parseLocalDate(date,time='12:00'){
- const [y,m,d]=date.split('-').map(Number);
- const [h,min]=time.split(':').map(Number);
+function localDate(date,time='12:00'){
+ const [y,m,d]=date.split('-').map(Number),[h,min]=time.split(':').map(Number);
  return new Date(y,m-1,d,h,min,0,0);
 }
 function formatDate(s){
- if(!s)return '';
- return new Intl.DateTimeFormat('ar-EG',{day:'numeric',month:'long',year:'numeric'}).format(parseLocalDate(s));
+ return s?new Intl.DateTimeFormat('ar-EG',{day:'numeric',month:'long',year:'numeric'}).format(localDate(s)):'';
 }
 function formatDay(s){
- return new Intl.DateTimeFormat('ar-EG',{weekday:'long'}).format(parseLocalDate(s));
+ return new Intl.DateTimeFormat('ar-EG',{weekday:'long'}).format(localDate(s));
 }
 function formatClock(s){
  if(!s)return '';
  const [h,m]=s.split(':').map(Number);
  return new Intl.DateTimeFormat('ar-EG',{hour:'numeric',minute:'2-digit',hour12:true}).format(new Date(2000,0,1,h,m));
 }
-function durationLabel(d){
- return String(d)==='open'?'أوبن — وقت مفتوح':Number(d)===1?'ساعة واحدة':d+' ساعات';
-}
-function totalLabel(d){
- return String(d)==='open'?'15 جنيه لكل ساعة فعلية':money(15*Number(d));
-}
-function calc(){ $('total').textContent=totalLabel($('duration').value); }
-
-function bookingStart(b){return parseLocalDate(b.date,b.time).getTime();}
-function bookingEnd(b){
- const start=parseLocalDate(b.date,b.time);
- if(String(b.duration)==='open'){
-  if(b.endTime){
-   const end=parseLocalDate(b.date,b.endTime);
-   if(end<=start)end.setDate(end.getDate()+1);
-   return end.getTime();
-  }
-  start.setDate(start.getDate()+1);
-  start.setHours(0,0,0,0);
-  return start.getTime();
+function getEndDateTime(b){
+ const start=localDate(b.date,b.time);
+ if(b.endTime){
+  let end=localDate(b.date,b.endTime);
+  if(end<=start)end.setDate(end.getDate()+1);
+  return end;
  }
- start.setMinutes(start.getMinutes()+Number(b.duration)*60);
- return start.getTime();
+ return new Date(start.getTime()+Number(b.duration||1)*3600000);
+}
+function bookingStart(b){return localDate(b.date,b.time).getTime()}
+function bookingEnd(b){return getEndDateTime(b).getTime()}
+function durationHours(b){return (bookingEnd(b)-bookingStart(b))/3600000}
+function durationLabel(b){
+ const h=durationHours(b);
+ return Number.isInteger(h)?h+' ساعة':h.toFixed(2)+' ساعة';
 }
 function endTimeLabel(b){
- if(String(b.duration)==='open'&&!b.endTime)return 'أوبن — لحد نهاية اليوم تنظيميًا';
- const start=parseLocalDate(b.date,b.time);
- let end;
- if(String(b.duration)==='open'){
-  end=parseLocalDate(b.date,b.endTime);
-  if(end<=start)end.setDate(end.getDate()+1);
- }else{
-  end=new Date(start.getTime()+Number(b.duration)*3600000);
- }
+ const end=getEndDateTime(b);
  return formatClock(String(end.getHours()).padStart(2,'0')+':'+String(end.getMinutes()).padStart(2,'0'))+
- (end.getDate()!==start.getDate()?' (اليوم التالي)':'');
+ (end.getDate()!==localDate(b.date,b.time).getDate()?' (اليوم التالي)':'');
 }
+function selectedDuration(){return String($('duration').value||'1')}
+
+function calc(){
+ const time=$('time').value,date=$('date').value||todayISO(),duration=selectedDuration();
+ if(!time){
+  $('durationSummary').textContent='اختار ميعاد البداية';
+  $('total').textContent='—';$('endTime').value='';
+  return null;
+ }
+ const start=localDate(date,time),hours=Number(duration),end=new Date(start.getTime()+hours*3600000);
+ if(!Number.isFinite(hours)||hours<=0)return null;
+ $('endTime').value=String(end.getHours()).padStart(2,'0')+':'+String(end.getMinutes()).padStart(2,'0');
+ $('durationSummary').textContent='المدة: '+hours+' '+(hours===1?'ساعة':'ساعات')+' • النهاية '+formatClock($('endTime').value);
+ $('total').textContent=money(hours*15);
+ return {hours,total:hours*15,endTime:$('endTime').value};
+}
+
 function conflicts(a,b){
- return Number(a.pcId)===Number(b.pcId)&&
- bookingStart(a)<bookingEnd(b)&&bookingStart(b)<bookingEnd(a);
+ return Number(a.pcId)===Number(b.pcId)&&bookingStart(a)<bookingEnd(b)&&bookingStart(b)<bookingEnd(a);
 }
 function acceptedConflict(candidate,arr=cachedPublic){
- return arr.find(b=>b.status==='accepted'&&b.id!==candidate.id&&conflicts(candidate,b));
+ return arr.find(b=>normalizeStatus(b.status)==='accepted'&&b.id!==candidate.id&&conflicts(candidate,b));
+}
+function selectedCandidate(time){
+ const p=pcs.find(x=>x.id===Number($('pc').value)),date=$('date').value,d=Number(selectedDuration());
+ if(!p||!date||!time)return null;
+ const end=new Date(localDate(date,time).getTime()+d*3600000);
+ return {pcId:p.id,pcName:p.name,date,time,duration:d,endTime:String(end.getHours()).padStart(2,'0')+':'+String(end.getMinutes()).padStart(2,'0')};
+}
+function slotConflicts(time){
+ const candidate=selectedCandidate(time);
+ return !candidate||!!acceptedConflict(candidate);
 }
 
-/* اختيار التاريخ */
+function renderTimeSlots(){
+ const box=$('timePicker');if(!box)return;
+ const selected=$('time').value,slots=[];
+ for(let h=0;h<24;h++){
+  slots.push(String(h).padStart(2,'0')+':00');
+  slots.push(String(h).padStart(2,'0')+':30');
+ }
+ const selectedDate=$('date').value,today=todayISO(),now=Date.now();
+ box.innerHTML=slots.map(t=>{
+  const slotDate=localDate(selectedDate||today,t),past=selectedDate<today||(selectedDate===today&&slotDate.getTime()<=now);
+  const busy=slotConflicts(t),disabled=past||busy;
+  let status='متاح';if(past)status='فات الميعاد';else if(busy)status='محجوز';
+  return `<button type="button" class="timeSlot ${t===selected?'selected':''} ${past?'past':''}" data-time="${t}" ${disabled?'disabled':''}>${safe(formatClock(t))}<small>${status}</small></button>`;
+ }).join('');
+ box.querySelectorAll('[data-time]').forEach(btn=>btn.addEventListener('click',()=>{
+  if(btn.disabled)return;
+  $('time').value=btn.dataset.time;calc();renderTimeSlots();checkAvailability();
+ }));
+ $('timeHint').textContent=selected?'ميعاد البداية: '+formatClock(selected):'كل المواعيد ظاهرة كل نص ساعة. المواعيد اللي عدّت أو المحجوزة مقفولة.';
+}
+
 function initDatePicker(){
  const input=$('date'),custom=$('customDate'),container=$('datePicker');
- input.value=input.value||todayISO();
- custom.min=todayISO();
-
+ const fmt=d=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
  function selectDate(date){
-  if(!date||date<todayISO())return;
-  input.value=date;
-  custom.value=date;
-  renderDateCards();
-  renderPublicReservations();
-  renderTimeSlots();
-  checkAvailability();
+  const max=new Date();max.setHours(12,0,0,0);max.setDate(max.getDate()+30);
+  if(!date||date<todayISO()||date>fmt(max)){alert('اختار تاريخ من النهارده لحد 30 يوم قدام.');return}
+  input.value=date;custom.value=date;render();$('time').value='';calc();checkAvailability();renderPublicReservations();
  }
- function renderDateCards(){
-  const selected=input.value,dates=[];
-  for(let i=0;i<14;i++){
-   const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()+i);
-   dates.push([d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-'));
-  }
-  container.innerHTML=dates.map((date,i)=>`
-   <button type="button" class="dateCard ${date===selected?'selected':''}" data-date="${date}" aria-pressed="${date===selected}">
-    <b>${i===0?'النهارده':i===1?'بكره':safe(formatDay(date))}</b>
-    <span>${safe(new Intl.DateTimeFormat('ar-EG',{day:'numeric',month:'short'}).format(parseLocalDate(date)))}</span>
-   </button>`).join('');
-  container.querySelectorAll('[data-date]').forEach(btn=>btn.addEventListener('click',()=>selectDate(btn.dataset.date)));
-  $('dateSummary').textContent='اليوم المختار: '+formatDay(selected)+'، '+formatDate(selected);
+ function render(){
+  const today=new Date();today.setHours(12,0,0,0);const dates=[];
+  for(let i=0;i<3;i++){const d=new Date(today);d.setDate(today.getDate()+i);dates.push(fmt(d))}
+  if(!input.value||input.value<todayISO())input.value=dates[0];
+  container.innerHTML=dates.map((d,i)=>`<button type="button" class="dateCard ${d===input.value?'selected':''}" data-date="${d}"><b>${i===0?'النهارده':i===1?'بكره':'بعد بكرة'}</b><span>${safe(formatDate(d))}</span></button>`).join('');
+  container.querySelectorAll('[data-date]').forEach(b=>b.onclick=()=>selectDate(b.dataset.date));
+  $('dateSummary').textContent='اليوم المختار: '+formatDay(input.value)+'، '+formatDate(input.value);
+  custom.value=input.value;
  }
- $('customDateButton').addEventListener('click',()=>{
-  custom.min=todayISO();
-  if(typeof custom.showPicker==='function'){
-   try{custom.showPicker()}catch(e){custom.click();}
-  }else custom.click();
- });
- custom.addEventListener('change',()=>{if(custom.value)selectDate(custom.value);});
- renderDateCards();
+ custom.min=todayISO();
+ custom.max=fmt(new Date(new Date().setDate(new Date().getDate()+30)));
+ custom.addEventListener('change',()=>selectDate(custom.value));
+ render();
 }
 
-/* اختيار اللعبة والدفع والمدة */
 function initPickers(){
- const games=[
-  ['PUBG','🎯','باتل رويال'],
-  ['Valorant','⚡','تصويب تكتيكي'],
-  ['GTA V','🚘','عالم مفتوح'],
-  ['لعبة تانية','🎮','لعبتك المفضلة']
- ];
- $('gamePicker').innerHTML=games.map((g,i)=>`
-  <button type="button" class="choice ${i===0?'selected':''}" data-game="${g[0]}">
-   <span class="emoji">${g[1]}</span><b>${g[0]}</b><small>${g[2]}</small>
-  </button>`).join('');
-
- $('gamePicker').querySelectorAll('[data-game]').forEach(btn=>btn.addEventListener('click',()=>{
-  $('game').value=btn.dataset.game;
-  $('gamePicker').querySelectorAll('.choice').forEach(x=>x.classList.toggle('selected',x===btn));
- }));
-
- $('paymentPicker').querySelectorAll('[data-payment]').forEach(btn=>btn.addEventListener('click',()=>{
-  $('payment').value=btn.dataset.payment;
-  $('paymentPicker').querySelectorAll('.choice').forEach(x=>x.classList.toggle('selected',x===btn));
- }));
-
- const durations=[
-  ['1','ساعة','15 جنيه'],['2','ساعتين','30 جنيه'],['3','3 ساعات','45 جنيه'],
-  ['4','4 ساعات','60 جنيه'],['5','5 ساعات','75 جنيه'],['open','أوبن','حسب الاستخدام']
- ];
- $('durationPicker').innerHTML=durations.map((d,i)=>`
-  <button type="button" class="durationBtn ${i===0?'selected':''} ${d[0]==='open'?'openBtn':''}" data-duration="${d[0]}">
-   <b>${d[1]}</b><small>${d[2]}</small>
-  </button>`).join('');
-
- $('durationPicker').querySelectorAll('[data-duration]').forEach(btn=>btn.addEventListener('click',()=>{
-  $('duration').value=btn.dataset.duration;
-  $('durationPicker').querySelectorAll('.durationBtn').forEach(x=>x.classList.toggle('selected',x===btn));
-  $('openEndField').classList.toggle('hidden',btn.dataset.duration!=='open');
-  if(btn.dataset.duration!=='open')$('endTime').value='';
-  calc();
-  renderTimeSlots();
-  checkAvailability();
- }));
+ const games=[['PUBG','🎯','باتل رويال'],['Valorant','⚡','تصويب تكتيكي'],['GTA V','🚘','عالم مفتوح'],['لعبة تانية','🎮','لعبتك المفضلة']];
+ $('gamePicker').innerHTML=games.map((g,i)=>`<button type="button" class="choice ${i===0?'selected':''}" data-game="${g[0]}"><span class="emoji">${g[1]}</span><b>${g[0]}</b><small>${g[2]}</small></button>`).join('');
+ $('gamePicker').querySelectorAll('[data-game]').forEach(b=>b.onclick=()=>{
+  $('game').value=b.dataset.game;
+  $('gamePicker').querySelectorAll('.choice').forEach(x=>x.classList.toggle('selected',x===b));
+ });
+ $('paymentPicker').querySelectorAll('[data-payment]').forEach(b=>b.onclick=()=>{
+  $('payment').value=b.dataset.payment;
+  $('paymentPicker').querySelectorAll('.choice').forEach(x=>x.classList.toggle('selected',x===b));
+ });
+ const durations=[['1','ساعة واحدة'],['2','ساعتين'],['3','3 ساعات'],['4','4 ساعات'],['5','5 ساعات']];
+ $('durationPicker').innerHTML=durations.map((d,i)=>`<button type="button" class="durationOption ${i===0?'selected':''}" data-duration="${d[0]}">${d[1]}<small>${Number(d[0])*15} جنيه</small></button>`).join('');
+ $('durationPicker').querySelectorAll('[data-duration]').forEach(b=>b.onclick=()=>{
+  $('duration').value=b.dataset.duration;
+  $('durationPicker').querySelectorAll('.durationOption').forEach(x=>x.classList.toggle('selected',x===b));
+  calc();checkAvailability();
+ });
 }
 
-/* الأجهزة */
+function activeBookingForPC(p){
+ const date=$('date').value,now=Date.now();
+ return cachedPublic.filter(b=>normalizeStatus(b.status)==='accepted'&&Number(b.pcId)===p.id&&b.date===date&&bookingStart(b)<=now&&bookingEnd(b)>now).sort((a,b)=>bookingStart(a)-bookingStart(b))[0];
+}
+function nextBookingForPC(p){
+ const date=$('date').value,now=Date.now();
+ return cachedPublic.filter(b=>normalizeStatus(b.status)==='accepted'&&Number(b.pcId)===p.id&&b.date===date&&bookingStart(b)>now).sort((a,b)=>bookingStart(a)-bookingStart(b))[0];
+}
+function deviceStateHTML(p){
+ const active=activeBookingForPC(p);
+ if(active){
+  const mins=Math.floor(Math.max(0,Date.now()-bookingStart(active))/60000);
+  return `<span class="deviceState running">🟢 شغال من ${safe(formatClock(active.time))}<br>الوقت المنقضي: ${Math.floor(mins/60)} س ${mins%60} د</span>`;
+ }
+ const next=nextBookingForPC(p);
+ if(next)return `<span class="deviceState reserved">⏳ محجوز الساعة ${safe(formatClock(next.time))}</span>`;
+ return '<span class="deviceState">✓ متاح للحجز</span>';
+}
 function fillPCs(){
  const previous=Number($('pc').value);
  $('pc').innerHTML=pcs.map(p=>`<option value="${p.id}">${p.name}</option>`).join('');
  $('pc').value=String(pcs.some(p=>p.id===previous)?previous:pcs[0].id);
-
- const cards=pcs.map(p=>`
-  <button type="button" class="pc ${p.id===Number($('pc').value)?'selected':''}" data-pc="${p.id}" aria-pressed="${p.id===Number($('pc').value)}">
-   <span class="screen">🖥️</span><b>${p.name}</b><small>محطة لعب</small>
-   <span class="pcPrice">15 جنيه / ساعة</span>
-   <span class="pcSelectMark">${p.id===Number($('pc').value)?'تم الاختيار':'اختار الجهاز'}</span>
-  </button>`).join('');
-
- $('pcPicker').innerHTML='<div class="hint" style="margin-bottom:8px">اختار محطة اللعب المناسبة ليك</div><div class="pcgrid">'+cards+'</div>';
- $('pcGrid').innerHTML=cards;
-
- document.querySelectorAll('[data-pc]').forEach(btn=>btn.addEventListener('click',()=>selectPC(Number(btn.dataset.pc))));
- calc();
+ $('pcPicker').innerHTML='<div class="hint" style="margin-bottom:8px">اختار محطة اللعب المناسبة ليك</div><div class="pcgrid">'+pcs.map(p=>`<button type="button" class="pc ${p.id===Number($('pc').value)?'selected':''}" data-pc="${p.id}"><span class="screen">🖥️</span><b>${p.name}</b><small>محطة لعب</small><span class="pcPrice">15 جنيه / ساعة</span>${deviceStateHTML(p)}<span class="pcSelectMark">${p.id===Number($('pc').value)?'تم الاختيار':'اختار الجهاز'}</span></button>`).join('')+'</div>';
+ $('pcPicker').querySelectorAll('[data-pc]').forEach(b=>b.onclick=()=>{$('pc').value=b.dataset.pc;fillPCs();checkAvailability()});
  renderTimeSlots();
- checkAvailability();
-}
-function selectPC(id){
- $('pc').value=String(id);
- fillPCs();
 }
 
-/* مواعيد البداية: كل نصف ساعة، والتعارض يعطل الميعاد */
-function generateTimeSlots(){
- const slots=[];
- for(let mins=0;mins<1440;mins+=30){
-  const h=Math.floor(mins/60),m=mins%60;
-  slots.push(String(h).padStart(2,'0')+':'+String(m).padStart(2,'0'));
- }
- return slots;
-}
-function slotConflicts(time){
- const pcId=Number($('pc').value),date=$('date').value,dv=$('duration').value;
- if(!pcId||!date)return false;
- const candidate={
-  id:'',
-  pcId,
-  pcName:pcs.find(p=>p.id===pcId)?.name||'',
-  date,
-  time,
-  duration:dv==='open'?'open':Number(dv),
-  endTime:dv==='open'?$('endTime').value:''
- };
- return !!acceptedConflict(candidate,cachedPublic);
-}
-function renderTimeSlots(){
- const container=$('timePicker');
- if(!container)return;
- const chosen=$('time').value;
- const slots=generateTimeSlots();
- container.innerHTML=slots.map(time=>{
-  const unavailable=slotConflicts(time);
-  const selected=time===chosen;
-  return `<button type="button" class="timeSlot ${selected?'selected':''}" data-time="${time}" ${unavailable?'disabled':''} aria-pressed="${selected}">
-   ${safe(formatClock(time))}
-  </button>`;
- }).join('');
-
- container.querySelectorAll('[data-time]').forEach(btn=>btn.addEventListener('click',()=>{
-  if(btn.disabled)return;
-  $('time').value=btn.dataset.time;
-  renderTimeSlots();
-  checkAvailability();
- }));
- const anyAvailable=container.querySelectorAll('.timeSlot:not(:disabled)').length;
- $('timeHint').textContent=anyAvailable
-  ?'المواعيد المحجوزة لنفس الجهاز والتاريخ والمدة غير متاحة. اختار ميعاد من الكروت.'
-  :'مفيش مواعيد متاحة بالاختيارات دي. جرّب جهاز أو تاريخ تاني.';
-
- if(chosen&&slotConflicts(chosen)){
-  $('time').value='';
-  renderTimeSlots();
- }
-}
-
-/* فحص التعارض */
 function checkAvailability(){
- const notice=$('conflictNotice');
- const submit=$('bookingForm').querySelector('button[type="submit"]');
- if(!notice||!submit)return;
-
- const p=pcs.find(x=>x.id===Number($('pc').value));
- const date=$('date').value,time=$('time').value,dv=$('duration').value;
-
- if(!p||!date||!time){
-  notice.classList.add('hidden');
-  notice.innerHTML='';
-  submit.disabled=false;
-  submit.style.opacity='1';
-  return;
- }
-
- const candidate={
-  id:'',pcId:p.id,pcName:p.name,date,time,
-  duration:dv==='open'?'open':Number(dv),
-  endTime:dv==='open'?$('endTime').value:''
- };
- const other=acceptedConflict(candidate,cachedPublic);
-
+ renderTimeSlots();
+ const notice=$('conflictNotice'),submit=$('bookingForm').querySelector('[type="submit"]');
+ const p=pcs.find(x=>x.id===Number($('pc').value)),date=$('date').value,time=$('time').value;
+ calc();
+ if(!p||!date||!time){notice.classList.add('hidden');submit.disabled=false;return}
+ const candidate=selectedCandidate(time),other=candidate&&acceptedConflict(candidate);
  if(other){
-  notice.innerHTML=`<strong>⚠️ الجهاز ده محجوز بالفعل!</strong>
-   الميعاد بيتعارض مع حجز مؤكد.
-   <div class="conflictDetails">🖥️ ${safe(other.pcName)}<br>
-   📅 ${safe(formatDate(other.date))}<br>
-   🕒 ${safe(formatClock(other.time))} إلى ${safe(endTimeLabel(other))}</div>`;
-  notice.classList.remove('hidden');
-  submit.disabled=true;
-  submit.style.opacity='.55';
- }else{
-  notice.classList.add('hidden');
-  notice.innerHTML='';
-  submit.disabled=false;
-  submit.style.opacity='1';
- }
+  notice.innerHTML=`<strong>⚠️ الميعاد ده متعارض مع حجز مؤكد</strong>${safe(other.pcName)} — ${safe(formatDate(other.date))}<div class="conflictDetails">من ${safe(formatClock(other.time))} إلى ${safe(endTimeLabel(other))}</div>`;
+  notice.classList.remove('hidden');submit.disabled=true;
+ }else{notice.classList.add('hidden');notice.innerHTML='';submit.disabled=false}
 }
 
 function renderPublicReservations(){
  const date=$('date').value||todayISO();
- const arr=cachedPublic.filter(b=>b.status==='accepted'&&b.date===date)
-  .slice().sort((a,b)=>a.time.localeCompare(b.time));
-
- $('publicReservations').innerHTML=arr.length?arr.map(b=>`
-  <div class="booking">
-   <div class="bookinghead"><b>${safe(b.pcName)} • ${safe(b.game)}</b><span class="status accepted">محجوز</span></div>
-   <p>📅 ${safe(formatDate(b.date))}<br>
-   🕒 من ${safe(formatClock(b.time))} إلى ${safe(endTimeLabel(b))}<br>
-   ⏱️ ${safe(durationLabel(b.duration))}</p>
-  </div>`).join(''):'<div class="empty">مفيش حجوزات مؤكدة في اليوم ده.</div>';
-
- renderTimeSlots();
+ const arr=cachedPublic.filter(b=>normalizeStatus(b.status)==='accepted'&&b.date===date).sort((a,b)=>String(a.time||'').localeCompare(String(b.time||'')));
+ $('publicReservations').innerHTML=arr.length?arr.map(b=>`<div class="booking"><div class="bookinghead"><b>${safe(b.pcName||'جهاز')} • ${safe(b.game||'لعبة')}</b><span class="status accepted">محجوز</span></div><p>📅 ${safe(formatDate(b.date))}<br>🕒 ${safe(formatClock(b.time))} إلى ${safe(endTimeLabel(b))}<br>⏱️ ${safe(durationLabel(b))}</p></div>`).join(''):'<div class="empty">مفيش حجوزات مؤكدة في اليوم ده.</div>';
+ fillPCs();
 }
 
 function renderMine(){
- const arr=cachedMine.slice().sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));
- $('myBookings').innerHTML=arr.length?arr.map(b=>`
-  <div class="booking">
-   <div class="bookinghead">
-    <b>${safe(b.pcName)} • ${safe(b.game)}</b>
-    <span class="status ${safe(b.status)}">${({pending:'قيد المراجعة',accepted:'مقبول',rejected:'مرفوض'})[b.status]||'غير معروف'}</span>
-   </div>
-   <p>📅 ${safe(formatDate(b.date))} — ${safe(formatClock(b.time))}<br>
-   🏁 النهاية: ${safe(endTimeLabel(b))}<br>
-   ⏱️ ${safe(durationLabel(b.duration))} • 💰 ${b.duration==='open'?'حسب وقت اللعب':money(b.total)}<br>
-   💳 الدفع: ${safe(b.payment)}<br>
-   📌 حالة الطلب: <strong class="status ${safe(b.status)}">${({pending:'قيد المراجعة لدى الإدارة',accepted:'تم قبول الحجز',rejected:'تم رفض الحجز'})[b.status]||'غير معروف'}</strong></p>
-  </div>`).join(''):'<div class="empty">مفيش طلبات حجز من الحساب ده لسه.</div>';
+ const el=$('myBookings');
+ const arr=cachedMine.slice().sort((a,b)=>String(b.createdAt||'').localeCompare(String(a.createdAt||'')));
+ el.innerHTML=arr.length?arr.map(b=>{
+  const status=normalizeStatus(b.status);
+  const labels={pending:'قيد المراجعة',accepted:'مقبول',rejected:'مرفوض'};
+  return `<div class="booking"><div class="bookinghead"><b>${safe(b.pcName||'جهاز')} • ${safe(b.game||'لعبة')}</b><span class="status ${status}">${labels[status]}</span></div><p>📅 ${safe(formatDate(b.date))} — ${safe(formatClock(b.time))}<br>🏁 النهاية: ${safe(endTimeLabel(b))}<br>⏱️ ${safe(durationLabel(b))} • 💰 ${money(b.total||0)}<br>💳 ${safe(b.payment||'غير محدد')}</p></div>`;
+ }).join(''):'<div class="empty">مفيش طلبات حجز من الجلسة دي لسه.</div>';
 }
 
-/* لوحة الإدارة مقسمة إلى ثلاث قوائم */
-function adminBookingCard(b){
- return `<article class="booking">
-  <div class="bookinghead">
-   <b>${safe(b.name)} — ${safe(b.phone)}</b>
-   <span class="status ${safe(b.status)}">${({pending:'قيد المراجعة',accepted:'مقبول',rejected:'مرفوض'})[b.status]||'غير معروف'}</span>
-  </div>
-  <p>الجهاز: ${safe(b.pcName)} • اللعبة: ${safe(b.game)}<br>
-  التاريخ: ${safe(formatDate(b.date))} • البداية: ${safe(formatClock(b.time))}<br>
-  النهاية: ${safe(endTimeLabel(b))}<br>
-  المدة: ${safe(durationLabel(b.duration))} • الإجمالي: ${b.duration==='open'?'حسب الاستخدام (15 جنيه لكل ساعة)':money(b.total)}<br>
-  الدفع: ${safe(b.payment)}<br>رقم الطلب: ${safe(b.id)}</p>
-  ${b.status==='pending'?`<div class="actions">
-   <button class="accept" onclick="setStatus('${safe(b.id)}','accepted')">قبول الحجز</button>
-   <button class="reject" onclick="setStatus('${safe(b.id)}','rejected')">رفض الحجز</button>
-  </div>`:''}
-  ${b.status==='accepted'&&cachedCash.some(t=>t.id==='booking_'+b.id)?`<p class="hint">💵 تم إضافة ${money(cachedCash.find(t=>t.id==='booking_'+b.id).amount)} إلى دخل اليوم عند الموافقة.</p>`:''}
- </article>`;
-}
 function renderAdmin(){
- const arr=cachedAdmin.slice().sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));
- const pending=arr.filter(b=>b.status==='pending');
- const accepted=arr.filter(b=>b.status==='accepted');
- const rejected=arr.filter(b=>b.status==='rejected');
+ const arr=cachedAdmin.slice().sort((a,b)=>String(b.createdAt||'').localeCompare(String(a.createdAt||'')));
+ const pending=arr.filter(b=>normalizeStatus(b.status)==='pending');
+ const accepted=arr.filter(b=>normalizeStatus(b.status)==='accepted');
+ const rejected=arr.filter(b=>normalizeStatus(b.status)==='rejected');
+ const todayPaid=accepted.filter(b=>b.date===todayISO()&&b.paid===true);
+ const todayIncome=todayPaid.reduce((s,b)=>s+Number(b.total||0),0);
+ const allPaid=accepted.filter(b=>b.paid===true);
 
  $('adminStats').innerHTML=`
-  <div class="stat"><b>${arr.length}</b><span>كل الطلبات</span></div>
-  <div class="stat"><b>${pending.length}</b><span>قيد المراجعة</span></div>
-  <div class="stat"><b>${accepted.length}</b><span>مقبولة</span></div>`;
+ <div class="stat"><b>${money(todayIncome)}</b><span>دخل النهارده المدفوع</span></div>
+ <div class="stat"><b>${todayPaid.length}</b><span>حجوزات مدفوعة النهارده</span></div>
+ <div class="stat"><b>${arr.length}</b><span>كل الطلبات</span></div>
+ <div class="stat"><b>${pending.length}</b><span>قيد المراجعة</span></div>
+ <div class="stat"><b>${accepted.length}</b><span>حجوزات مقبولة</span></div>
+ <div class="stat"><b>${rejected.length}</b><span>حجوزات مرفوضة</span></div>
+ <div class="stat"><b>${allPaid.length}</b><span>كل الحجوزات المدفوعة</span></div>`;
 
- $('pendingCount').textContent=pending.length;
- $('acceptedCount').textContent=accepted.length;
- $('rejectedCount').textContent=rejected.length;
+ function group(list,type){
+  if(!list.length)return '<div class="empty">لا توجد حجوزات في هذا القسم.</div>';
+  return list.map(b=>{
+   const status=normalizeStatus(b.status),paid=b.paid===true;
+   const paymentControl=type==='accepted'?`<div class="actions"><button class="${paid?'unpaidAction':'paidAction'}" onclick="togglePaid('${safe(b.id)}')">${paid?'↩️ إلغاء تسجيل الدفع':'💵 استلام الدفع وتسجيله'}</button></div>`:'';
+   const labels={pending:'قيد المراجعة',accepted:'مقبول',rejected:'مرفوض'};
+   return `<article class="booking">
+    <div class="bookinghead"><b>${safe(b.name||'اسم غير مسجل')} — ${safe(b.phone||'رقم غير مسجل')}</b><span class="status ${status}">${labels[status]}</span></div>
+    <p>الجهاز: ${safe(b.pcName||'غير محدد')} • اللعبة: ${safe(b.game||'غير محددة')}<br>
+    التاريخ: ${safe(formatDate(b.date))}<br>
+    البداية: ${safe(formatClock(b.time))}<br>
+    النهاية: ${safe(endTimeLabel(b))}<br>
+    المدة: ${safe(durationLabel(b))}<br>
+    الإجمالي: ${money(b.total||0)}<br>
+    الدفع المختار: ${safe(b.payment||'غير محدد')}<br>
+    حالة التحصيل: <span class="${paid?'paidLabel':'unpaidLabel'}">${paid?'تم استلام الدفع':'لم يتم استلام الدفع'}</span><br>
+    رقم الطلب: ${safe(b.id)}</p>
+    ${paymentControl}
+    ${type==='pending'?`<div class="actions"><button class="accept" onclick="setStatus('${safe(b.id)}','accepted')">قبول الحجز</button><button class="reject" onclick="setStatus('${safe(b.id)}','rejected')">رفض الحجز</button></div>`:''}
+   </article>`;
+  }).join('');
+ }
+ $('adminPending').innerHTML=group(pending,'pending');
+ $('adminAccepted').innerHTML=group(accepted,'accepted');
+ $('adminRejected').innerHTML=group(rejected,'rejected');
+}
 
- $('pendingBookings').innerHTML=pending.length?pending.map(adminBookingCard).join(''):'<div class="empty">مفيش حجوزات قيد المراجعة.</div>';
- $('acceptedBookings').innerHTML=accepted.length?accepted.map(adminBookingCard).join(''):'<div class="empty">مفيش حجوزات مقبولة.</div>';
- $('rejectedBookings').innerHTML=rejected.length?rejected.map(adminBookingCard).join(''):'<div class="empty">مفيش حجوزات مرفوضة.</div>';
+async function togglePaid(id){
+ if(!currentUser||currentUser.email!==ADMIN_EMAIL||currentUser.isAnonymous){alert('سجّل دخول المدير أولًا.');return}
+ const ref=db.collection('nexora_bookings').doc(id);
+ try{
+  await db.runTransaction(async tx=>{
+   const snap=await tx.get(ref);
+   if(!snap.exists)throw Error('الحجز غير موجود');
+   const b=snap.data();
+   if(normalizeStatus(b.status)!=='accepted')throw Error('لا يمكن تسجيل الدفع إلا لحجز مقبول.');
+   const nextPaid=b.paid!==true;
+   tx.update(ref,{paid:nextPaid,paidAt:nextPaid?firebase.firestore.FieldValue.serverTimestamp():null,updatedAt:firebase.firestore.FieldValue.serverTimestamp()});
+  });
+ }catch(e){console.error(e);alert('تعذر تحديث حالة الدفع: '+e.message)}
 }
 
 function showView(v){
@@ -692,158 +416,249 @@ function showView(v){
  $('adminView').classList.toggle('hidden',v!=='admin');
  $('navBook').classList.toggle('active',v==='book');
  $('navAdmin').classList.toggle('active',v==='admin');
- if(v==='admin')syncAdminView();
- else{renderMine();renderPublicReservations();}
+ if(v==='admin')syncAdminView();else{renderMine();renderPublicReservations()}
 }
-function showLoginMessage(msg,cls=''){
- const el=$('loginMessage');el.textContent=msg;el.className='connection '+cls;
-}
-function stopListeners(){
- if(publicUnsub){publicUnsub();publicUnsub=null;}
- if(mineUnsub){mineUnsub();mineUnsub=null;}
- if(adminUnsub){adminUnsub();adminUnsub=null;}
- if(cashUnsub){cashUnsub();cashUnsub=null;}
-}
+function showLoginMessage(msg,cls=''){$('loginMessage').textContent=msg;$('loginMessage').className='connection '+cls}
 
-/* الحجوزات العامة */
 function startPublicListener(){
  if(publicUnsub)publicUnsub();
  publicUnsub=db.collection('publicBookings').onSnapshot(s=>{
-  cachedPublic=s.docs.map(d=>({id:d.id,...d.data()}));
-  renderPublicReservations();
-  checkAvailability();
+  cachedPublic=s.docs.map(mapBookingDocument);
+  renderPublicReservations();checkAvailability();
  },e=>{
   $('publicReservations').innerHTML='<div class="empty">تعذر تحميل الحجوزات العامة. راجع قواعد Firestore.</div>';
-  console.error(e);
+  console.error('publicBookings read:',e);
  });
 }
 
-/* حجوزات العميل — المجموعة الجديدة */
 function startMineListener(user){
  if(mineUnsub)mineUnsub();
- mineUnsub=db.collection(BOOKINGS_COLLECTION).where('uid','==',user.uid).onSnapshot(s=>{
-  cachedMine=s.docs.map(d=>({id:d.id,...d.data()}));
-  myIds=cachedMine.map(b=>b.id);
-  localStorage.setItem('nexora_myids',JSON.stringify(myIds));
+ mineUnsub=db.collection('nexora_bookings').where('uid','==',user.uid).onSnapshot(s=>{
+  cachedMine=s.docs.map(mapBookingDocument);
   renderMine();
  },e=>{
-  console.error(e);
-  $('myBookings').innerHTML='<div class="empty">تعذر تحميل طلباتك. تأكد من قواعد Firestore.</div>';
+  console.error('My bookings read:',e);
+  $('myBookings').innerHTML='<div class="empty">تعذر تحميل حجوزاتك. راجع قواعد Firestore.</div>';
  });
 }
 
-function syncAdminView(){
- const logged=!!(currentUser&&currentUser.email===ADMIN_EMAIL&&!currentUser.isAnonymous);
+/* إصلاح التحقق من صلاحيات المدير وتجديد رمز الدخول قبل قراءة كل الحجوزات. */
+async function syncAdminView(){
+ const user=currentUser;
+ const logged=!!(user&&user.email===ADMIN_EMAIL&&!user.isAnonymous);
+
  $('adminLogin').classList.toggle('hidden',logged);
  $('adminContent').classList.toggle('hidden',!logged);
 
  if(!logged){
-  if(adminUnsub){adminUnsub();adminUnsub=null;}
-  if(cashUnsub){cashUnsub();cashUnsub=null;}
+  if(adminUnsub){adminUnsub();adminUnsub=null}
+  adminCheckRunning=false;
   return;
  }
 
- startCashListener();
- if(adminUnsub)return;
+ if(adminUnsub||adminCheckRunning)return;
+ adminCheckRunning=true;
 
- $('adminConnection').textContent='جاري تحميل الطلبات...';
- adminUnsub=db.collection(BOOKINGS_COLLECTION).onSnapshot(s=>{
-  cachedAdmin=s.docs.map(d=>({id:d.id,...d.data()}));
-  $('adminConnection').textContent='متصل — يتم تحديث الطلبات تلقائيًا';
-  $('adminConnection').className='connection ok';
-  renderAdmin();
- },e=>{
-  $('adminConnection').textContent='خطأ في قراءة الحجوزات: '+e.message;
+ $('adminConnection').textContent='جاري التحقق من صلاحيات المدير...';
+ $('adminConnection').className='connection';
+
+ try{
+  const tokenResult=await user.getIdTokenResult(true);
+
+  if(!currentUser||currentUser.uid!==user.uid)return;
+
+  const tokenEmail=String(tokenResult.claims.email||'').trim().toLowerCase();
+
+  if(tokenEmail!==ADMIN_EMAIL.toLowerCase()){
+   $('adminConnection').textContent='صلاحيات المدير غير متطابقة. البريد في رمز Firebase: '+(tokenEmail||'غير موجود')+'. سجّل خروج ثم ادخل بحساب المدير.';
+   $('adminConnection').className='connection err';
+   return;
+  }
+
+  $('adminConnection').textContent='تم التحقق من المدير — جاري تحميل الحجوزات...';
+
+  adminUnsub=db.collection('nexora_bookings').onSnapshot(snapshot=>{
+   cachedAdmin=snapshot.docs.map(mapBookingDocument);
+   $('adminConnection').textContent='متصل — تم تحميل '+cachedAdmin.length+' حجز — تحديث تلقائي';
+   $('adminConnection').className='connection ok';
+   renderAdmin();
+  },error=>{
+   if(adminUnsub){adminUnsub();adminUnsub=null}
+   $('adminConnection').textContent='خطأ في قراءة الحجوزات: '+error.message+' — تحقق من نشر قواعد Firestore على مشروع nexora-gaming-1e2f9.';
+   $('adminConnection').className='connection err';
+   console.error('Admin bookings read:',error);
+  });
+ }catch(error){
+  $('adminConnection').textContent='فشل التحقق من المدير: '+error.message;
   $('adminConnection').className='connection err';
-  console.error(e);
- });
+  console.error('Admin token check:',error);
+ }finally{
+  adminCheckRunning=false;
+ }
 }
 
 async function setStatus(id,status){
- if(!currentUser||currentUser.email!==ADMIN_EMAIL||currentUser.isAnonymous){
-  alert('سجّل دخول المدير أولًا.');return;
- }
- const ref=db.collection(BOOKINGS_COLLECTION).doc(id);
+ if(!currentUser||currentUser.email!==ADMIN_EMAIL||currentUser.isAnonymous){alert('سجّل دخول المدير أولًا.');return}
+ if(!['accepted','rejected'].includes(status))return;
+
+ const ref=db.collection('nexora_bookings').doc(id);
  try{
-  const snap=await ref.get();
-  if(!snap.exists){alert('الحجز غير موجود.');return;}
-  const b={id:snap.id,...snap.data()};
+  const initial=await ref.get();
+  if(!initial.exists)throw Error('الحجز غير موجود');
+  const b={...initial.data(),id:initial.id,status:normalizeStatus(initial.data().status)};
+  if(b.status!=='pending')throw Error('حالة الحجز اتغيرت بالفعل. حدّث الصفحة.');
 
   if(status==='accepted'){
-   const other=cachedAdmin.find(x=>x.id!==id&&x.status==='accepted'&&conflicts(b,x));
-   if(other){
-    alert(`مينفعش تقبل الحجز: الجهاز ${other.pcName} محجوز من ${formatClock(other.time)} إلى ${endTimeLabel(other)}.`);
-    return;
-   }
+   const q=await db.collection('publicBookings').where('status','==','accepted').get();
+   const other=q.docs.map(mapBookingDocument).find(x=>x.id!==id&&conflicts(b,x));
+   if(other)throw Error(`تعارض مع ${other.pcName} من ${formatClock(other.time)} إلى ${endTimeLabel(other)}.`);
   }
 
-  await ref.update({status,updatedAt:firebase.firestore.FieldValue.serverTimestamp()});
-  const publicRef=db.collection('publicBookings').doc(id);
-
-  if(status==='accepted'){
-   await publicRef.set({
-    id,pcId:b.pcId,pcName:b.pcName,game:b.game,date:b.date,time:b.time,
-    duration:b.duration,endTime:b.endTime||'',status:'accepted',createdAt:b.createdAt||''
-   });
-
-   let amount=Number(b.total);
-   if(String(b.duration)==='open'){
-    let hours=1;
-    if(b.endTime){
-     const [sh,sm]=String(b.time||'00:00').split(':').map(Number);
-     const [eh,em]=String(b.endTime).split(':').map(Number);
-     let mins=(eh*60+em)-(sh*60+sm);
-     if(mins<=0)mins+=1440;
-     hours=Math.max(1,Math.ceil(mins/60));
-    }
-    amount=hours*15;
-   }
-   if(!Number.isFinite(amount)||amount<=0)amount=15;
-   await saveBookingIncome(b,amount,false);
-   alert('تم قبول الحجز وإضافة دخله تلقائيًا إلى دخل النهارده.');
-  }else{
-   await publicRef.delete().catch(()=>{});
-   alert('تم رفض الحجز.');
-  }
- }catch(e){
-  console.error(e);
-  alert('حصل خطأ أثناء تحديث الحجز: '+e.message+'\nراجع اتصال الإنترنت وقواعد Firestore.');
- }
-}
-
-/* دخل الحجوزات */
-function startCashListener(){
- if(cashUnsub)return;
- cashUnsub=db.collection('cashTransactions').onSnapshot(s=>{
-  cachedCash=s.docs.map(d=>({id:d.id,...d.data()}));
-  renderAccounting();renderAdmin();
- },e=>{
-  console.error(e);
-  if($('cashStats'))$('cashStats').innerHTML='<div class="accountingTile"><span>تعذر تحميل الدخل</span><strong>راجع قواعد Firebase</strong></div>';
- });
-}
-function renderAccounting(){
- const today=todayISO();
- const income=cachedCash.filter(t=>t.type==='income'&&t.date===today).reduce((n,t)=>n+Number(t.amount||0),0);
- if($('cashStats'))$('cashStats').innerHTML=`<div class="accountingTile"><span>💵 إجمالي دخل اليوم</span><strong>${money(income)}</strong></div>`;
-}
-async function saveBookingIncome(b,amount,showAlert=false){
- const ref=db.collection('cashTransactions').doc('booking_'+b.id);
- try{
   await db.runTransaction(async tx=>{
-   const existing=await tx.get(ref);
-   if(existing.exists)return;
-   tx.set(ref,{
-    type:'income',amount:Number(amount),category:'دخل حجز',
-    note:'دخل حجز '+(b.name||'')+' — '+(b.pcName||''),
-    date:todayISO(),createdAt:new Date().toISOString(),
-    sourceBookingId:b.id,bookingId:b.id,uid:currentUser.uid,automatic:true
-   });
+   const snap=await tx.get(ref);
+   if(!snap.exists)throw Error('الحجز غير موجود');
+   if(normalizeStatus(snap.data().status)!=='pending')throw Error('حالة الحجز اتغيرت بالفعل. حدّث الصفحة.');
+   tx.update(ref,{status,paid:false,paidAt:null,updatedAt:firebase.firestore.FieldValue.serverTimestamp()});
   });
-  if(showAlert)alert('تم تسجيل دخل الحجز تلقائيًا.');
- }catch(e){console.error(e);throw e;}
+
+  if(status==='accepted'){
+   const fresh=await ref.get(),data=fresh.data();
+   await db.collection('publicBookings').doc(id).set({
+    id,pcId:data.pcId,pcName:data.pcName,game:data.game,date:data.date,time:data.time,
+    endTime:data.endTime||'',duration:data.duration,status:'accepted',createdAt:data.createdAt||''
+   });
+  }else{
+   await db.collection('publicBookings').doc(id).delete().catch(()=>{});
+  }
+
+  alert(status==='accepted'?'تم قبول الحجز. تقدر تسجل الدفع من قسم الحجوزات المقبولة.':'تم رفض الحجز.');
+ }catch(e){console.error(e);alert('تعذر تحديث الحجز: '+e.message)}
 }
 
 function exportBookings(){
- if(!currentUser||currentUser.email!==ADMIN_EMAIL||currentUser.isAnonymous){
-  alert
+ if(!currentUser||currentUser.email!==ADMIN_EMAIL||currentUser.isAnonymous){alert('سجّل دخول المدير أولًا.');return}
+ const rows=[['رقم الطلب','الاسم','الموبايل','الجهاز','اللعبة','التاريخ','البداية','النهاية','المدة','الإجمالي','الدفع المختار','حالة التحصيل','الحالة'],
+ ...cachedAdmin.map(b=>[b.id,b.name,b.phone,b.pcName,b.game,b.date,formatClock(b.time),endTimeLabel(b),durationHours(b),b.total,b.payment,b.paid===true?'مدفوع':'غير مدفوع',normalizeStatus(b.status)])];
+ const csv='\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');
+ const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download='nexora-bookings.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
+$('bookingForm').addEventListener('submit',async e=>{
+ e.preventDefault();
+ if(bookingBusy)return;
+
+ const phone=$('phone').value.trim();
+ if(phone.replace(/\D/g,'').length<10){alert('اتأكد من رقم الموبايل');return}
+
+ const p=pcs.find(x=>x.id===Number($('pc').value)),date=$('date').value,time=$('time').value,d=calc();
+ if(!p||!date||!time||!d){alert('اختار الجهاز واليوم وميعاد البداية والمدة');return}
+ if(date<todayISO()||localDate(date,time)<=new Date()){alert('ميعاد الحجز لازم يكون في المستقبل');return}
+ if(!$('payment').value){alert('اختار طريقة الدفع الأول');return}
+
+ const candidate=selectedCandidate(time);
+ if(acceptedConflict(candidate)){checkAvailability();alert('المعاد ده بيتعارض مع حجز مؤكد. اختار معاد أو جهاز تاني.');return}
+
+ bookingBusy=true;
+ const submit=$('bookingForm').querySelector('[type="submit"]');
+ submit.disabled=true;submit.textContent='جاري إرسال الحجز...';
+
+ try{
+  let user=auth.currentUser;
+  if(!user)user=(await auth.signInAnonymously()).user;
+
+  const id='NX-'+Date.now().toString(36).toUpperCase()+'-'+Math.random().toString(36).slice(2,6).toUpperCase();
+
+  const b={
+   id,uid:user.uid,name:$('customer').value.trim(),phone,
+   pcId:p.id,pcName:p.name,price:15,game:$('game').value,
+   date,time,endTime:d.endTime,duration:d.hours,total:d.total,
+   payment:$('payment').value,status:'pending',paid:false,paidAt:null,
+   createdAt:new Date().toISOString()
+  };
+
+  const query=await db.collection('publicBookings').where('status','==','accepted').get();
+  const other=query.docs.map(mapBookingDocument).find(x=>conflicts(b,x));
+  if(other)throw Error('الحجز اتعارض مع حجز مؤكد أثناء الإرسال. اختار ميعاد تاني.');
+
+  await db.collection('nexora_bookings').doc(id).set(b);
+
+  alert('تم حفظ طلب الحجز بنجاح. هتلاقيه قيد المراجعة، وتقدر تتابع حالته من قسم حالة حجوزاتي.');
+
+  e.target.reset();
+  $('game').value='PUBG';
+  $('gamePicker').querySelectorAll('[data-game]').forEach((x,i)=>x.classList.toggle('selected',i===0));
+  $('payment').value='';
+  $('paymentPicker').querySelectorAll('[data-payment]').forEach(x=>x.classList.remove('selected'));
+  $('time').value='';
+  $('duration').value='1';
+  $('durationPicker').querySelectorAll('[data-duration]').forEach((x,i)=>x.classList.toggle('selected',i===0));
+  initDatePicker();fillPCs();calc();checkAvailability();
+
+ }catch(err){
+  console.error('NEXORA booking save error:',err);
+  alert('الحجز لم يُحفظ أو لم يكتمل. رسالة Firebase:\n'+err.message);
+ }finally{
+  bookingBusy=false;
+  submit.disabled=false;
+  submit.textContent='إرسال طلب الحجز ←';
+  checkAvailability();
+ }
+});
+
+$('adminLoginBtn').addEventListener('click',async()=>{
+ const email=$('adminEmail').value.trim().toLowerCase(),password=$('adminPassword').value;
+ if(email!==ADMIN_EMAIL){showLoginMessage('الإيميل ده مش إيميل المدير المسجل.','err');return}
+ if(!password){showLoginMessage('اكتب كلمة المرور.','err');return}
+ const btn=$('adminLoginBtn');btn.disabled=true;showLoginMessage('جاري تسجيل الدخول...');
+ try{
+  await auth.signInWithEmailAndPassword(email,password);
+  showLoginMessage('تم تسجيل الدخول.','ok');
+  await syncAdminView();
+ }catch(e){showLoginMessage('فشل تسجيل الدخول: '+e.message,'err')}
+ finally{btn.disabled=false}
+});
+
+$('adminLogoutBtn').addEventListener('click',async()=>{
+ try{await auth.signOut()}catch(e){alert('تعذر تسجيل الخروج: '+e.message)}
+});
+
+$('pc').addEventListener('change',()=>{fillPCs();checkAvailability()});
+
+auth.onAuthStateChanged(async user=>{
+ currentUser=user;
+ if(user&&user.email===ADMIN_EMAIL&&!user.isAnonymous){
+  if(mineUnsub){mineUnsub();mineUnsub=null}
+  startMineListener(user);
+  syncAdminView();
+ }else{
+  if(adminUnsub){adminUnsub();adminUnsub=null}
+  adminCheckRunning=false;
+  if(user)startMineListener(user);
+  else{
+   cachedMine=[];renderMine();
+   try{const cred=await auth.signInAnonymously();startMineListener(cred.user)}
+   catch(e){console.error('Anonymous auth failed:',e)}
+  }
+  syncAdminView();
+ }
+});
+
+initPickers();
+initDatePicker();
+fillPCs();
+calc();
+renderMine();
+renderPublicReservations();
+checkAvailability();
+startPublicListener();
+
+setInterval(()=>{
+ renderTimeSlots();
+ fillPCs();
+ checkAvailability();
+ renderMine();
+},60000);
+</script>
+</body>
+</html>
