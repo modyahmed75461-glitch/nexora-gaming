@@ -138,12 +138,13 @@ const defaultPCs=[
 
 let pcs=defaultPCs,currentUser=null,publicUnsub=null,mineUnsub=null,adminUnsub=null;
 let cachedPublic=[],cachedMine=[],cachedAdmin=[],bookingBusy=false;
-let adminCheckRunning=false;
 
 const $=id=>document.getElementById(id);
 const money=n=>new Intl.NumberFormat('ar-EG').format(n)+' ج.م';
 const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
+/* إصلاح قراءة الحالات: أي حالة معروفة تتحول لصيغتها الموحدة.
+   لو الحالة ناقصة أو غير معروفة، يظهر الحجز في قيد المراجعة بدل اختفائه. */
 function normalizeStatus(value){
  const s=String(value??'').trim().toLowerCase();
  if(['accepted','approved','confirmed','مقبول','مؤكد','تم القبول','تم التأكيد'].includes(s))return 'accepted';
@@ -151,6 +152,7 @@ function normalizeStatus(value){
  return 'pending';
 }
 
+/* مهم: معرّف المستند من Firebase هو المرجع الحقيقي، فلا نسمح لحقل id قديم باستبداله. */
 function mapBookingDocument(doc){
  const data=doc.data()||{};
  return {...data,id:doc.id,status:normalizeStatus(data.status)};
@@ -442,59 +444,27 @@ function startMineListener(user){
  });
 }
 
-/* إصلاح التحقق من صلاحيات المدير وتجديد رمز الدخول قبل قراءة كل الحجوزات. */
-async function syncAdminView(){
- const user=currentUser;
- const logged=!!(user&&user.email===ADMIN_EMAIL&&!user.isAnonymous);
-
+function syncAdminView(){
+ const logged=!!(currentUser&&currentUser.email===ADMIN_EMAIL&&!currentUser.isAnonymous);
  $('adminLogin').classList.toggle('hidden',logged);
  $('adminContent').classList.toggle('hidden',!logged);
-
  if(!logged){
   if(adminUnsub){adminUnsub();adminUnsub=null}
-  adminCheckRunning=false;
   return;
  }
+ if(adminUnsub)return;
 
- if(adminUnsub||adminCheckRunning)return;
- adminCheckRunning=true;
-
- $('adminConnection').textContent='جاري التحقق من صلاحيات المدير...';
- $('adminConnection').className='connection';
-
- try{
-  const tokenResult=await user.getIdTokenResult(true);
-
-  if(!currentUser||currentUser.uid!==user.uid)return;
-
-  const tokenEmail=String(tokenResult.claims.email||'').trim().toLowerCase();
-
-  if(tokenEmail!==ADMIN_EMAIL.toLowerCase()){
-   $('adminConnection').textContent='صلاحيات المدير غير متطابقة. البريد في رمز Firebase: '+(tokenEmail||'غير موجود')+'. سجّل خروج ثم ادخل بحساب المدير.';
-   $('adminConnection').className='connection err';
-   return;
-  }
-
-  $('adminConnection').textContent='تم التحقق من المدير — جاري تحميل الحجوزات...';
-
-  adminUnsub=db.collection('nexora_bookings').onSnapshot(snapshot=>{
-   cachedAdmin=snapshot.docs.map(mapBookingDocument);
-   $('adminConnection').textContent='متصل — تم تحميل '+cachedAdmin.length+' حجز — تحديث تلقائي';
-   $('adminConnection').className='connection ok';
-   renderAdmin();
-  },error=>{
-   if(adminUnsub){adminUnsub();adminUnsub=null}
-   $('adminConnection').textContent='خطأ في قراءة الحجوزات: '+error.message+' — تحقق من نشر قواعد Firestore على مشروع nexora-gaming-1e2f9.';
-   $('adminConnection').className='connection err';
-   console.error('Admin bookings read:',error);
-  });
- }catch(error){
-  $('adminConnection').textContent='فشل التحقق من المدير: '+error.message;
+ $('adminConnection').textContent='جاري تحميل الطلبات...';
+ adminUnsub=db.collection('nexora_bookings').onSnapshot(s=>{
+  cachedAdmin=s.docs.map(mapBookingDocument);
+  $('adminConnection').textContent='متصل — تم تحميل '+cachedAdmin.length+' حجز — تحديث تلقائي';
+  $('adminConnection').className='connection ok';
+  renderAdmin();
+ },e=>{
+  $('adminConnection').textContent='خطأ في قراءة الحجوزات: '+e.message;
   $('adminConnection').className='connection err';
-  console.error('Admin token check:',error);
- }finally{
-  adminCheckRunning=false;
- }
+  console.error('Admin bookings read:',e);
+ });
 }
 
 async function setStatus(id,status){
@@ -577,10 +547,12 @@ $('bookingForm').addEventListener('submit',async e=>{
    createdAt:new Date().toISOString()
   };
 
+  /* فحص التعارض قبل الحفظ. */
   const query=await db.collection('publicBookings').where('status','==','accepted').get();
   const other=query.docs.map(mapBookingDocument).find(x=>conflicts(b,x));
   if(other)throw Error('الحجز اتعارض مع حجز مؤكد أثناء الإرسال. اختار ميعاد تاني.');
 
+  /* الحفظ في bookings هو الخطوة الأساسية. لو فشل، نظهر الخطأ للمستخدم. */
   await db.collection('nexora_bookings').doc(id).set(b);
 
   alert('تم حفظ طلب الحجز بنجاح. هتلاقيه قيد المراجعة، وتقدر تتابع حالته من قسم حالة حجوزاتي.');
@@ -613,8 +585,7 @@ $('adminLoginBtn').addEventListener('click',async()=>{
  const btn=$('adminLoginBtn');btn.disabled=true;showLoginMessage('جاري تسجيل الدخول...');
  try{
   await auth.signInWithEmailAndPassword(email,password);
-  showLoginMessage('تم تسجيل الدخول.','ok');
-  await syncAdminView();
+  showLoginMessage('تم تسجيل الدخول.','ok');syncAdminView();
  }catch(e){showLoginMessage('فشل تسجيل الدخول: '+e.message,'err')}
  finally{btn.disabled=false}
 });
@@ -629,11 +600,9 @@ auth.onAuthStateChanged(async user=>{
  currentUser=user;
  if(user&&user.email===ADMIN_EMAIL&&!user.isAnonymous){
   if(mineUnsub){mineUnsub();mineUnsub=null}
-  startMineListener(user);
-  syncAdminView();
+  startMineListener(user);syncAdminView();
  }else{
   if(adminUnsub){adminUnsub();adminUnsub=null}
-  adminCheckRunning=false;
   if(user)startMineListener(user);
   else{
    cachedMine=[];renderMine();
